@@ -62,14 +62,11 @@ yearly_proportion = yearly_df %>% filter(type !="All other makers") %>% group_by
 #Source for numbers
 #https://dsm.forecastinternational.com/2019/10/01/an-overview-of-the-u-s-commercial-aircraft-fleet-2/#:~:text=Of%20the%207%2C356%20aircraft%20in,manufactured%20by%2013%20different%20companies.
 #### Plotting ####
-#Could look at total number of fatalities as time passes grouped by flight company
-#Exclude the 'all other makers' 
-#Perhaps pick only a few to compare with Boeing - even Airbus and Lockheed
-#Find the number of Boeings being flown, and the number of other planes
-#To make it a relative measurement
-#1.9 fatalities per plane or whatever
+#Only plot from 2000
+#Cumulate the fatalities over the time period
 truncated = yearly_proportion %>% filter(date > "2000-01-01") %>% 
   group_by(type) %>% mutate(cum_qFatal_prop = cumsum(qFatal_prop))
+
 plot1 <- ggplot(data= truncated)+
   geom_point(aes(x=date, y=(cum_qFatal_prop), color= type))+
   theme_bw()+
@@ -78,6 +75,7 @@ plot1 <- ggplot(data= truncated)+
   scale_color_lancet(name = "Aircraft Type")
 plot1
 
+#Save plot
 Cairo(210, 120, file="fatalitiesplot.png", type="png", bg="white", res = 400, units = "mm")
 plot1
 dev.off()
