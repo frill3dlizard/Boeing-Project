@@ -58,8 +58,7 @@ yearly_proportion = yearly_df %>% filter(type !="All other makers") %>% group_by
   mutate(qFatal_prop = case_when(type == "Boeing" ~ qFatal/43.9,
                                  type == "McDonnell D." ~ qFatal/4.5,
                                  type == "Airbus" ~ qFatal/21.2,
-                                 type == "Cessna" ~qFatal/3.4),
-         cum_qFatal_prop = cumsum(qFatal_prop))
+                                 type == "Cessna" ~qFatal/3.4))
 #Source for numbers
 #https://dsm.forecastinternational.com/2019/10/01/an-overview-of-the-u-s-commercial-aircraft-fleet-2/#:~:text=Of%20the%207%2C356%20aircraft%20in,manufactured%20by%2013%20different%20companies.
 #### Plotting ####
@@ -69,12 +68,20 @@ yearly_proportion = yearly_df %>% filter(type !="All other makers") %>% group_by
 #Find the number of Boeings being flown, and the number of other planes
 #To make it a relative measurement
 #1.9 fatalities per plane or whatever
-truncated = yearly_proportion %>% filter(date > "2000-01-01")
-ggplot(data= truncated)+
+truncated = yearly_proportion %>% filter(date > "2000-01-01") %>% 
+  group_by(type) %>% mutate(cum_qFatal_prop = cumsum(qFatal_prop))
+plot1 <- ggplot(data= truncated)+
   geom_point(aes(x=date, y=(cum_qFatal_prop), color= type))+
   theme_bw()+
   scale_x_date(name ="")+
-  scale_y_continuous(name = "Number of Fatilities by Share of Flight")
+  scale_y_continuous(name = "Number of Fatilities by Share of Flight")+
+  scale_color_lancet(name = "Aircraft Type")
+plot1
+
+Cairo(210, 120, file="fatalitiesplot.png", type="png", bg="white", res = 400, units = "mm")
+plot1
+dev.off()
+
 
 summary(lm(data=truncated, cum_qFatal_prop ~ date+type))
 
