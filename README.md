@@ -1,2 +1,10 @@
 # Boeing-Project
-Is Boeing actually more dangerous than other aircraft types?
+Is Boeing actually more dangerous than other aircraft types? 
+
+In recent times, Boeing has been under a negative light, with its most recent crash only on the 29/12/2024 killing 179 on board, leaving merely 2 surviving crew members ([thegaurdian](https://www.theguardian.com/world/2024/dec/29/south-korea-jeju-air-plane-crash-mourning), 30/12/2024). Combining this with the multiple other reports of mechanical failures and financial turmoil; Boeing seems to be failing on many fronts. Some analysis has be done on the frequency of incidients (an unforseen event that causes no injury), however this short investigation will focus on accidents that were fatal. For passengers, whether this accident was caused due to human error, a mechanical failure or weather event is of little importance, so these types of failures are not seperated.
+
+
+![fatalitiesplot](https://github.com/user-attachments/assets/a3bc1d8c-ba79-4172-bf3b-51f37843d9f6)
+*<small> Cummulative fatalities since 2000, made relative to the percent share in the US commercial aircraft fleet, and seperated by aircraft type.The data on commercial aircraft fatalities was dervied from the U.S. National Transport Safety Board ([NTSB](https://data.ntsb.gov/carol-main-public/query-builder)), filters can be found in the R script. Share of aircraft fleet found at [ForecastInternationl](https://dsm.forecastinternational.com/2019/10/01/an-overview-of-the-u-s-commercial-aircraft-fleet-2/#:~:text=Of%20the%207%2C356%20aircraft%20in,manufactured%20by%2013%20different%20companies).</small>*
+
+The above plot shows that Cessna has both the most frequent number of fatal incidents, but also the highest number of fatalities relative to the number of planes flown. Focusing on Airbus and Boeing, the two main aircraft types in commercial aviation, the Airbus has less incidents each year, however seemingly more severe. Boeing has a far greater number of incidents, and an overall higher number of fatalities relative to the number of Boeing planes.
