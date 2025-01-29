@@ -1,5 +1,5 @@
 # Boeing-Project
-Is Boeing actually more dangerous than other aircraft types? 
+## Is Boeing actually more dangerous than other aircraft types? 
 
 In recent times, Boeing has been under a negative light, with its most recent crash only on the 29/12/2024 killing 179 on board, leaving merely 2 surviving crew members ([thegaurdian](https://www.theguardian.com/world/2024/dec/29/south-korea-jeju-air-plane-crash-mourning), 30/12/2024). Combining this with the multiple other reports of mechanical failures and financial turmoil; Boeing seems to be failing on many fronts. Some analysis has be done on the frequency of incidients (an unforseen event that causes no injury), however this short investigation will focus on accidents that were fatal. For passengers, whether this accident was caused due to human error, a mechanical failure or weather event is of little importance, so these types of failures are not seperated.
 
